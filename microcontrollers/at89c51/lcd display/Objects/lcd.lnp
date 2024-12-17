@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\oja.obj" 
+TO ".\Objects\lcd" 
+PRINT(".\Listings\lcd.m51")

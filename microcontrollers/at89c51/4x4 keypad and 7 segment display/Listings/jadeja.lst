@@ -1,0 +1,77 @@
+C51 COMPILER V9.60.7.0   JADEJA                                                            11/15/2024 19:09:02 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE JADEJA
+OBJECT MODULE PLACED IN .\Objects\jadeja.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE jadeja.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\ja
+                    -deja.lst) TABS(2) OBJECT(.\Objects\jadeja.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include <stdio.h>
+   3          
+   4          
+   5          #define l P2
+   6          #define k P3
+   7          
+   8          unsigned char r[]={0x0e,0x0d,0x0b,0x07};
+   9          unsigned char c[]={0xe0,0xd0,0xb0,0x70};
+  10           
+  11          unsigned char s1;
+  12          int row;
+  13          int column;
+  14          unsigned char arr[4][4]={{0x07,0x7f,0x67,0x77},{0x66,0x6d,0x7d,0x7c},{0x06,0x5b,0x4f,0x39},{0x5e,0x3f,0x79
+             -,0x71}};
+  15          int x;
+  16          int y;
+  17          int z;
+  18          int q;
+  19          void delay(int a)
+  20          {
+  21   1          int i,j;
+  22   1          for(i =0 ; i<a ; i++)
+  23   1          {
+  24   2              for(j=0 ; j<i ; j++);
+  25   2          }
+  26   1      }
+  27          void main(void)
+  28           {
+  29   1          while (1)
+  30   1         {
+  31   2           k=0x0f;
+  32   2           for(x=0;x<4;x++){
+  33   3                   if(k==r[x]){
+  34   4                     z=x;
+  35   4                     break;
+  36   4             } 
+  37   3           }
+  38   2           //delay(10);
+  39   2           k=0xf0;
+  40   2           for(y=0;y<4;y++){
+  41   3                   if(k==c[y]){
+  42   4               q=y;
+  43   4                     break;
+  44   4               } 
+  45   3           }       
+  46   2          // delay(10);
+  47   2            l=arr[z][q];
+  48   2          //delay(10);  
+  49   2         }
+  50   1       }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+C51 COMPILER V9.60.7.0   JADEJA                                                            11/15/2024 19:09:02 PAGE 2   
+
+   CODE SIZE        =    141    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     37    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

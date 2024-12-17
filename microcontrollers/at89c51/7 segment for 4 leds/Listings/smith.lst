@@ -1,0 +1,103 @@
+C51 COMPILER V9.60.7.0   SMITH                                                             10/15/2024 11:17:40 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE SMITH
+OBJECT MODULE PLACED IN .\Objects\smith.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE smith.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\smi
+                    -th.lst) TABS(2) OBJECT(.\Objects\smith.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #define msec 1000
+   3          unsigned int arr[10]={0x40,0xF9,0x24,0x30,0x19,0x12,0x02,0xF8,0x00,0x10};
+   4          sbit d2=P1^2;
+   5          sbit d1=P1^3;
+   6          sbit d0=P1^4;
+   7          sbit d= P1^5;
+   8          unsigned int v1,v2,v3,v4,v0;
+   9          void delay(unsigned int count)
+  10          {
+  11   1      unsigned int j,k;
+  12   1      for (j=0;j<=count;j++)
+  13   1      for (k=0;k<=5;k++);
+  14   1      }
+  15          void main()
+  16          {
+  17   1       v1=v2=v3=v4=v0=0;
+  18   1       while(1)
+  19   1      {   
+  20   2      {
+  21   3           v0=v0+1;
+  22   3        if(v0==2)
+  23   3        {
+  24   4        v0=0;
+  25   4        v1=v1+1;
+  26   4        }
+  27   3          P2=0xFF;
+  28   3        d = 1;
+  29   3        d2 = d0 = d1= 0;
+  30   3        P2 = arr[v1];
+  31   3        delay(msec);
+  32   3        
+  33   3          if(v1==10)
+  34   3        {
+  35   4        v1=0;
+  36   4        v2=v2+1;
+  37   4        }
+  38   3        P2=0xFF;
+  39   3        d0 = 1;
+  40   3        d1 =d=d2= 0;
+  41   3        P2 = arr[v2];
+  42   3        delay(msec);
+  43   3      
+  44   3          if(v2==10)
+  45   3        {
+  46   4        v2=0;
+  47   4        v3=v3+1;
+  48   4        }
+  49   3        P2=0xFF;
+  50   3        d1 = 1;
+  51   3        d2 =d=d0= 0;
+  52   3        P2 = arr[v3];
+  53   3        delay(msec);
+  54   3      
+C51 COMPILER V9.60.7.0   SMITH                                                             10/15/2024 11:17:40 PAGE 2   
+
+  55   3          if(v3==10)
+  56   3        {
+  57   4        v3=0;
+  58   4        v4=v4+1;
+  59   4        }
+  60   3        P2=0xFF;
+  61   3        d2 = 1;
+  62   3        d1 =d=d0= 0;
+  63   3        P2 = arr[v4];
+  64   3        delay(msec);
+  65   3      
+  66   3        if(v4==10)
+  67   3        {
+  68   4      v1=0;
+  69   4      v2=0;
+  70   4      v3=0;
+  71   4      v4=0;
+  72   4          }
+  73   3      delay(msec);
+  74   3      P2=0xFF;
+  75   3      }
+  76   2      }
+  77   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    249    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     30    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

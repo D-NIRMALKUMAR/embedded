@@ -1,0 +1,246 @@
+C51 COMPILER V9.60.7.0   PAT                                                               10/25/2024 19:34:13 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE PAT
+OBJECT MODULE PLACED IN .\Objects\pat.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE pat.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\pat.l
+                    -st) TABS(2) OBJECT(.\Objects\pat.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          void cct_init(void);
+   3          void lcd_init(void);
+   4          void lcd_comm(unsigned int);
+   5          void lcd_data(char);
+   6          char read_switch(void);
+   7          char get_switch(void);
+   8          void delay(int);
+   9          sbit rowa=P1^0;
+  10          sbit rowb=P1^1;
+  11          sbit rowc=P1^2;
+  12          sbit rowd=P1^3;
+  13          sbit c1=P1^4;
+  14          sbit c2=P1^5;
+  15          sbit c3=P1^6;
+  16          sbit c4=P1^7;
+  17          sbit RS=P3^5;
+  18          sbit RW=P3^6;
+  19          sbit EN=P3^7;
+  20          #define lcd_datapin P2
+  21          void main()
+  22          {
+  23   1      char key;
+  24   1      cct_init();
+  25   1      lcd_init();
+  26   1      while(1)
+  27   1      {
+  28   2      key=get_switch();
+  29   2      lcd_comm(0x01); //we want to display all char remove this line
+  30   2      lcd_data(key);
+  31   2      }
+  32   1      }
+  33          void cct_init()
+  34          {
+  35   1      P0=0x00;
+  36   1      P1=0xf0;
+  37   1      P2=0xff;
+  38   1      P3=0xff;
+  39   1      }
+  40          void lcd_init()
+  41          {
+  42   1      delay(15000);
+  43   1      lcd_comm(0x30);
+  44   1      delay(4500);
+  45   1      lcd_comm(0x30);
+  46   1      delay(300);
+  47   1      lcd_comm(0x30);
+  48   1      delay(650);
+  49   1      lcd_comm(0x38);
+  50   1      lcd_comm(0x06);
+  51   1      lcd_comm(0x0f);
+  52   1      lcd_comm(0x01);
+  53   1      }
+  54          void lcd_comm(unsigned int z)
+C51 COMPILER V9.60.7.0   PAT                                                               10/25/2024 19:34:13 PAGE 2   
+
+  55          {
+  56   1      RS=0;
+  57   1      RW=0;
+  58   1      lcd_datapin=z;
+  59   1      EN=1;
+  60   1      delay(150);
+  61   1      EN=0;
+  62   1      }
+  63          void lcd_data(char t)
+  64          {
+  65   1      RS=1;
+  66   1      RW=0;
+  67   1      lcd_datapin=t;
+  68   1      EN=1;
+  69   1      delay(150);
+  70   1      EN=0;
+  71   1      }
+  72          char read_switch()
+  73          {
+  74   1      rowa=0;rowb=1;rowc=1;rowd=1;
+  75   1      if(c1==0)
+  76   1      {
+  77   2      delay(150);
+  78   2      while(c1==0);
+  79   2      return '0';
+  80   2      }
+  81   1      if(c2==0)
+  82   1      {
+  83   2      delay(150);
+  84   2      while(c2==0);
+  85   2      return '1';
+  86   2      }
+  87   1      if(c3==0)
+  88   1      {
+  89   2      delay(150);
+  90   2      while(c3==0);
+  91   2      return '2';
+  92   2      }
+  93   1      if(c4==0)
+  94   1      {
+  95   2      delay(150);
+  96   2      while(c4==0);
+  97   2      return '3';
+  98   2      }
+  99   1      rowa=1;rowb=0;rowc=1;rowd=1;
+ 100   1      if(c1==0)
+ 101   1      {
+ 102   2      delay(150);
+ 103   2      while(c1==0);
+ 104   2      return '4';
+ 105   2      }
+ 106   1      if(c2==0)
+ 107   1      {
+ 108   2      delay(150);
+ 109   2      while(c2==0);
+ 110   2      return '5';
+ 111   2      }
+ 112   1      if(c3==0)
+ 113   1      {
+ 114   2      delay(150);
+ 115   2      while(c3==0);
+ 116   2      return '6';
+C51 COMPILER V9.60.7.0   PAT                                                               10/25/2024 19:34:13 PAGE 3   
+
+ 117   2      }
+ 118   1      if(c4==0)
+ 119   1      {
+ 120   2      delay(150);
+ 121   2      while(c4==0);
+ 122   2      return '7';
+ 123   2      }
+ 124   1      rowa=1;rowb=1;rowc=0;rowd=1;
+ 125   1      if(c1==0)
+ 126   1      {
+ 127   2      delay(150);
+ 128   2      while(c1==0);
+ 129   2      return '8';
+ 130   2      }
+ 131   1      if(c2==0)
+ 132   1      {
+ 133   2      delay(150);
+ 134   2      while(c2==0);
+ 135   2      return '9';
+ 136   2      }
+ 137   1      if(c3==0)
+ 138   1      {
+ 139   2      delay(150);
+ 140   2      while(c3==0);
+ 141   2      return '10';
+*** ERROR C101 IN LINE 141 OF pat.c: ''1': invalid character constant
+*** ERROR C141 IN LINE 141 OF pat.c: syntax error near '0', expected ';'
+*** ERROR C101 IN LINE 141 OF pat.c: '';': invalid character constant
+*** ERROR C141 IN LINE 141 OF pat.c: syntax error near '';', expected ';'
+ 142   2      }
+*** ERROR C141 IN LINE 142 OF pat.c: syntax error near '}', expected ';'
+ 143   1      if(c4==0)
+ 144   1      {
+ 145   2      delay(150);
+ 146   2      while(c4==0);
+ 147   2      return '11';
+*** ERROR C101 IN LINE 147 OF pat.c: ''1': invalid character constant
+*** ERROR C141 IN LINE 147 OF pat.c: syntax error near '1', expected ';'
+*** ERROR C101 IN LINE 147 OF pat.c: '';': invalid character constant
+*** ERROR C141 IN LINE 147 OF pat.c: syntax error near '';', expected ';'
+ 148   2      }
+*** ERROR C141 IN LINE 148 OF pat.c: syntax error near '}', expected ';'
+ 149   1      rowa=1;rowb=1;rowc=1;rowd=0;
+ 150   1      if(c1==0)
+ 151   1      {
+ 152   2      delay(150);
+ 153   2      while(c1==0);
+ 154   2      return '12';
+*** ERROR C101 IN LINE 154 OF pat.c: ''1': invalid character constant
+*** ERROR C141 IN LINE 154 OF pat.c: syntax error near '2', expected ';'
+*** ERROR C101 IN LINE 154 OF pat.c: '';': invalid character constant
+*** ERROR C141 IN LINE 154 OF pat.c: syntax error near '';', expected ';'
+ 155   2      }
+*** ERROR C141 IN LINE 155 OF pat.c: syntax error near '}', expected ';'
+ 156   1      if(c2==0)
+ 157   1      {
+ 158   2      delay(150);
+ 159   2      while(c2==0);
+ 160   2      return '13';
+*** ERROR C101 IN LINE 160 OF pat.c: ''1': invalid character constant
+*** ERROR C141 IN LINE 160 OF pat.c: syntax error near '3', expected ';'
+*** ERROR C101 IN LINE 160 OF pat.c: '';': invalid character constant
+C51 COMPILER V9.60.7.0   PAT                                                               10/25/2024 19:34:13 PAGE 4   
+
+*** ERROR C141 IN LINE 160 OF pat.c: syntax error near '';', expected ';'
+ 161   2      }
+*** ERROR C141 IN LINE 161 OF pat.c: syntax error near '}', expected ';'
+ 162   1      if(c3==0)
+ 163   1      {
+ 164   2      delay(150);
+ 165   2      while(c3==0);
+ 166   2      return '14';
+*** ERROR C101 IN LINE 166 OF pat.c: ''1': invalid character constant
+*** ERROR C141 IN LINE 166 OF pat.c: syntax error near '4', expected ';'
+*** ERROR C101 IN LINE 166 OF pat.c: '';': invalid character constant
+*** ERROR C141 IN LINE 166 OF pat.c: syntax error near '';', expected ';'
+ 167   2      }
+*** ERROR C141 IN LINE 167 OF pat.c: syntax error near '}', expected ';'
+ 168   1      if(c4==0)
+ 169   1      {
+ 170   2      delay(150);
+ 171   2      while(c4==0);
+ 172   2      return '15';
+*** ERROR C101 IN LINE 172 OF pat.c: ''1': invalid character constant
+*** ERROR C141 IN LINE 172 OF pat.c: syntax error near '5', expected ';'
+*** ERROR C101 IN LINE 172 OF pat.c: '';': invalid character constant
+*** ERROR C141 IN LINE 172 OF pat.c: syntax error near '';', expected ';'
+ 173   2      }
+*** ERROR C141 IN LINE 173 OF pat.c: syntax error near '}', expected ';'
+ 174   1      return '16';
+*** ERROR C101 IN LINE 174 OF pat.c: ''1': invalid character constant
+*** ERROR C141 IN LINE 174 OF pat.c: syntax error near '6', expected ';'
+*** ERROR C101 IN LINE 174 OF pat.c: '';': invalid character constant
+*** ERROR C141 IN LINE 174 OF pat.c: syntax error near '';', expected ';'
+ 175   1      }
+*** ERROR C141 IN LINE 175 OF pat.c: syntax error near '}', expected ';'
+ 176          char get_switch()
+ 177          {
+ 178   1      char key='16';
+*** ERROR C101 IN LINE 178 OF pat.c: ''1': invalid character constant
+*** ERROR C141 IN LINE 178 OF pat.c: syntax error near '6', expected ';'
+*** ERROR C101 IN LINE 178 OF pat.c: '';': invalid character constant
+ 179   1      while(key=='16')
+*** ERROR C101 IN LINE 179 OF pat.c: ''1': invalid character constant
+*** ERROR C101 IN LINE 179 OF pat.c: '')': invalid character constant
+ 180   1      key=read_switch();
+*** ERROR C231 IN LINE 180 OF pat.c: 'key': redefinition
+ 181   1      return key;
+ 182   1      }
+ 183          void delay(int a)
+ 184          {
+ 185   1      int i;
+ 186   1      for(i=0;i<=a;i++);
+ 187   1      }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  41 ERROR(S)

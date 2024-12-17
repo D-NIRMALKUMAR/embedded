@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj" 
+TO ".\Objects\rfid1" 
+PRINT(".\Listings\rfid1.m51") RAMSIZE(256) 

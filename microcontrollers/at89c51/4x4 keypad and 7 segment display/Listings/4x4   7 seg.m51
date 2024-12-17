@@ -1,0 +1,158 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    10/29/2024  17:47:15  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\jadeja.obj TO .\Objects\4x4   7 seg PRINT (.\Listings\4x4  
+>>  7 seg.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\jadeja.obj (JADEJA)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\4x4   7 seg (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0025H     UNIT         ?DT?JADEJA
+            IDATA   002DH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     005EH     UNIT         ?PR?MAIN?JADEJA
+            CODE    08EAH     002FH     UNIT         ?PR?_DELAY?JADEJA
+            CODE    0919H     001FH     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\4x4   7 seg (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?JADEJA
+  +--> ?C_INITSEG
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\4x4   7 seg (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0800H         SEGMENT       ?C_C51STARTUP
+  I:002DH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  10/29/2024  17:47:15  PAGE 2
+
+
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0803H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0800H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0800H         LINE#         133
+  C:0802H         LINE#         134
+  C:0803H         LINE#         135
+  C:0804H         LINE#         136
+  C:0806H         LINE#         185
+  C:0809H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        JADEJA
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:08EAH         PUBLIC        _delay
+  D:0008H         PUBLIC        column
+  D:000AH         PUBLIC        s1
+  C:088CH         PUBLIC        main
+  D:000BH         PUBLIC        arr
+  D:001BH         PUBLIC        row
+  D:001DH         PUBLIC        c
+  D:0021H         PUBLIC        q
+  D:0023H         PUBLIC        r
+  D:0027H         PUBLIC        x
+  D:0029H         PUBLIC        y
+  D:002BH         PUBLIC        z
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        a
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:08EAH         LINE#         19
+  C:08EAH         LINE#         20
+  C:08EAH         LINE#         22
+  C:08FAH         LINE#         23
+  C:08FAH         LINE#         24
+  C:0911H         LINE#         25
+  C:0918H         LINE#         26
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  10/29/2024  17:47:15  PAGE 3
+
+
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  C:088CH         LINE#         27
+  C:088CH         LINE#         28
+  C:088CH         LINE#         29
+  C:088CH         LINE#         30
+  C:088CH         LINE#         31
+  C:088FH         LINE#         32
+  C:0894H         LINE#         33
+  C:089DH         LINE#         34
+  C:08A3H         LINE#         35
+  C:08A5H         LINE#         36
+  C:08A5H         LINE#         37
+  C:08B3H         LINE#         39
+  C:08B6H         LINE#         40
+  C:08BBH         LINE#         41
+  C:08C4H         LINE#         42
+  C:08CAH         LINE#         43
+  C:08CCH         LINE#         44
+  C:08CCH         LINE#         45
+  C:08DAH         LINE#         47
+  C:08E8H         LINE#         49
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        JADEJA
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?JADEJA
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00BAH BYTE ( 9%) *
+******************************************************************************
+
+Program Size: data=46.0 xdata=0 code=315
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

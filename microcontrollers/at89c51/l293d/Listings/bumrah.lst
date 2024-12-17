@@ -1,0 +1,65 @@
+C51 COMPILER V9.60.7.0   BUMRAH                                                            10/03/2024 12:12:50 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE BUMRAH
+OBJECT MODULE PLACED IN .\Objects\bumrah.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE bumrah.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\bu
+                    -mrah.lst) TABS(2) OBJECT(.\Objects\bumrah.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #define a P2
+   3          #define b P3
+   4          void delay(int d)
+   5          {
+   6   1        int i,j;
+   7   1        for(i=0;i<d;i++)
+   8   1        {
+   9   2          for(j=0;j<1000;j++);
+  10   2        }
+  11   1      }
+  12          void main()
+  13            {
+  14   1        a=0xff;
+  15   1        while(1)
+  16   1        {
+  17   2          a=0x0a;
+  18   2          delay(500);
+  19   2          a=0x05;
+  20   2          delay(500);
+  21   2          a=0x0a;
+  22   2          delay(500);
+  23   2          a=0x05;
+  24   2          delay(500);
+  25   2          b=0xff;
+  26   2          delay(500);
+  27   2          b=0x0f;
+  28   2          delay(500);
+  29   2          b=0x0f;
+  30   2          delay(500);
+  31   2          b=0x0f;
+  32   2          delay(500);
+  33   2          b=0x0f;
+  34   2          delay(500);
+  35   2          
+  36   2          
+  37   2        }
+  38   1      }
+  39          
+  40              
+  41              
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     92    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

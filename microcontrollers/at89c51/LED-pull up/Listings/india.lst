@@ -1,0 +1,59 @@
+C51 COMPILER V9.60.7.0   INDIA                                                             09/30/2024 19:19:56 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE INDIA
+OBJECT MODULE PLACED IN .\Objects\india.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE india.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\ind
+                    -ia.lst) TABS(2) OBJECT(.\Objects\india.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #define a P2
+   3          void delay(int d)
+   4          {
+   5   1        int i,j;
+   6   1        for (i=0;i<d;i++)
+   7   1        {
+   8   2          for (j=0;j<1000;j++);
+   9   2        }
+  10   1      }
+  11          void main()
+  12          {
+  13   1        a=0xff;
+  14   1        while(1)
+  15   1        {
+  16   2          a=0xff;
+  17   2          delay(1000);
+  18   2          a=0x7f;
+  19   2          delay(1000);
+  20   2          a=0x3f;
+  21   2          delay(1000);
+  22   2          a=0x1f;
+  23   2          delay(1000);
+  24   2          a=0x0f;
+  25   2          delay(1000);
+  26   2          a=0x07;
+  27   2          delay(1000);
+  28   2          a=0x03;
+  29   2          delay(1000);
+  30   2          a=0x01;
+  31   2          delay(1000);
+  32   2          a=0x00;
+  33   2          delay(1000);
+  34   2        }
+  35   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    101    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

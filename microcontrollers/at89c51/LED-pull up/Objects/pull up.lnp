@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\india.obj" 
+TO ".\Objects\pull up" 
+PRINT(".\Listings\pull up.m51")

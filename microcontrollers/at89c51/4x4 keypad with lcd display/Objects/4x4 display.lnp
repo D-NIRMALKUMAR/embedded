@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\pat.obj" 
+TO ".\Objects\4x4 display" 
+PRINT(".\Listings\4x4 display.m51")

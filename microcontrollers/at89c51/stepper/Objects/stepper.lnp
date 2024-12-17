@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\deepika.obj" 
+TO ".\Objects\stepper" 
+PRINT(".\Listings\stepper.m51")

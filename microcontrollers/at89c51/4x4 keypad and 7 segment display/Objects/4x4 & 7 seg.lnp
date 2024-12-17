@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\jadeja.obj" 
+TO ".\Objects\4x4 & 7 seg" 
+PRINT(".\Listings\4x4 & 7 seg.m51")

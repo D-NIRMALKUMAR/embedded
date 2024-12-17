@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\smith.obj" 
+TO ".\Objects\7 segment for 4 leds" 
+PRINT(".\Listings\7 segment for 4 leds.m51")

@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\manisha.obj" 
+TO ".\Objects\uart comm" 
+PRINT(".\Listings\uart comm.m51")

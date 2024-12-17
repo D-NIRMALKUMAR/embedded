@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\rohit.obj" 
+TO ".\Objects\7 segment comman anode" 
+PRINT(".\Listings\7 segment comman anode.m51")

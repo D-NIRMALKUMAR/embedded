@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\bumrah.obj" 
+TO ".\Objects\l293d convertor" 
+PRINT(".\Listings\l293d convertor.m51")
